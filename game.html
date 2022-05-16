@@ -1,0 +1,54 @@
+<script src="jquery.js"></script>
+<title>Game Click</title>
+<body>
+	<div class="g" style="top: 10px;"><img src="laugh.png" width="50px;"></div>
+</body>
+<style>
+	body{
+		background: black;
+	}
+	.g{
+		border: 2px dashed white;
+		width: 50px;
+		height: 50px;
+		overflow: hidden;
+		position: fixed;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: 0.3s;
+		animation: 3s rt infinite;
+	}
+	.g:active{
+		border: 2px dashed red;
+	}
+	img{
+		animation: 3s tr infinite;
+	}
+	@keyframes rt{
+		0%{
+			transform: rotate(0deg);
+		}
+		100%{
+			transform: rotate(360deg);
+		}
+	}
+	@keyframes tr{
+		0%{
+			transform: rotate(720deg);
+		}
+		100%{
+			transform: rotate(0deg);
+		}
+	}
+</style>
+<script>
+	$(".g").mouseover(function(){
+		var pix1=Math.floor(Math.random()*100);
+	    var pix2=Math.floor(Math.random()*100);
+	    if(pix1>600){
+	    	var pix1=pix1-600;
+	    	var pix1=600-pix1;
+	    }
+		$(".g").attr("style","top: "+pix1+"%; left: "+pix2+"%;");
+	});
+</script>
